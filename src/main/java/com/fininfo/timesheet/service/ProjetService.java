@@ -11,12 +11,15 @@ import com.fininfo.timesheet.entites.Projet;
 
 
 public interface ProjetService {
-	Projet saveProjet(Projet p);
-	Projet updateProjet(Projet p);
-void deleteProjet(Projet p);
+	Projet saveProjet(ProjetDto p);
+	Projet updateProjet(ProjetDto p);
+void deleteProjet(ProjetDto p);
  void deleteProjetById(Long id);
- Projet getProjet(Long id);
-List<Projet> getAllProjets();
+ ProjetDto getProjet(Long id);
+ List<ProjetDto> getProjetByTitle(String title);
+List<ProjetDto> getAllProjets();
 ProjetDto convertEntityTODto(Projet projet );
 Projet convetDtoToEntity(ProjetDto projetDto);
+List<ProjetDto> convertListEntityTODto(List<Projet> list );
+List<Projet> convertListDtoTOEntity(List<ProjetDto> list );
 }

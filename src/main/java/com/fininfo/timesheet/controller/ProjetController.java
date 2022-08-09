@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fininfo.timesheet.service.ProjetService;
+import com.fininfo.timesheet.Dto.ProjetDto;
 import com.fininfo.timesheet.entites.Projet;
 import com.fininfo.timesheet.repos.ProjetRepository;
 @CrossOrigin(origins = "http://localhost:3000")
@@ -25,8 +26,8 @@ import com.fininfo.timesheet.repos.ProjetRepository;
 public class ProjetController {
 	@Autowired
  ProjetService projetService;
-	 
-	  
+
+
 	 
 
     private final Logger log = LoggerFactory.getLogger(ProjetController.class);
@@ -37,25 +38,36 @@ public class ProjetController {
     }
  @GetMapping("/Projets")
   @ResponseBody
-  public List<Projet> getAllUsers(){
-	List<Projet> list= projetService.getAllProjets();
+  public List<ProjetDto> getAllProjects(){
+	List<ProjetDto> list= projetService.getAllProjets();
 	return list;	
                              }
+ @GetMapping("/Projets/{title}")
+ @ResponseBody
+ public List<ProjetDto> getProjectByTitle(@PathVariable("title")String title){
+	List<ProjetDto> list= projetService.getProjetByTitle(title);
+	return list;	
+                            }
  
- 
+ @GetMapping("/Projet/{id}")
+ @ResponseBody
+ public ProjetDto getProject(@PathVariable("id")Long id){
+	ProjetDto p = projetService.getProjet(id);
+	return p;	
+ }
  @PostMapping("/AddProjet")
  @ResponseBody
- public Projet AddUser(@RequestBody Projet p) {
+ public Projet AddUser(@RequestBody ProjetDto p) {
 	   return projetService.saveProjet(p);
  }
- @DeleteMapping("deleteProjetc/{id}")
+ @DeleteMapping("/deleteProject/{id}")
  @ResponseBody
- public void deleteProjet(@PathVariable("id")Long idProjet) {
-	 projetService.deleteProjetById(idProjet);
+ public void deleteProjet(@PathVariable("id")Long id) {
+	 projetService.deleteProjetById(id);
 	   
  }
  @PutMapping("/updateProject/{id}")
- public Projet UpdateUser( @RequestBody Projet p) {
+ public Projet UpdateUser( @RequestBody ProjetDto p) {
      log.info("Request to update group: {}", p);
      return  projetService.updateProjet(p);
     
