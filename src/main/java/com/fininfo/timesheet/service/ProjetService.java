@@ -22,4 +22,5 @@ ProjetDto convertEntityTODto(Projet projet );
 Projet convetDtoToEntity(ProjetDto projetDto);
 List<ProjetDto> convertListEntityTODto(List<Projet> list );
 List<Projet> convertListDtoTOEntity(List<ProjetDto> list );
+
 }

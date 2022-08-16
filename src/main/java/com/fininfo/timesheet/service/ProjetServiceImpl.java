@@ -107,7 +107,7 @@ public class ProjetServiceImpl implements ProjetService{
 	 return newProjetList;
 		}
 
-		
+	
 		
 		
 }

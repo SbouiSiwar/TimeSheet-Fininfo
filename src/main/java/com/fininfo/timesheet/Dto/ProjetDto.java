@@ -1,7 +1,9 @@
 package com.fininfo.timesheet.Dto;
 
-import java.util.Date;
 
+
+
+import java.sql.Date;
 
 import lombok.Data;
 @Data

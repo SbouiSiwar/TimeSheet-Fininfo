@@ -10,5 +10,6 @@ import com.fininfo.timesheet.entites.Projet;
 
 public interface ProjetRepository extends JpaRepository<Projet, Long> {
 	 List<Projet> findByTitre(String titre);
+	 
 
 }
