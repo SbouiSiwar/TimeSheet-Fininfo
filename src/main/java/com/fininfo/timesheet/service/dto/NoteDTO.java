@@ -1,6 +1,6 @@
 package com.fininfo.timesheet.service.dto;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ public class NoteDTO {
 
     private Long id;
     private String title;
-    private Date startDate;
-    private Date endDate;
+    private LocalDateTime  startDate;
+    private LocalDateTime  endDate;
     private String description;
 }
